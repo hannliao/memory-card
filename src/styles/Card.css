@@ -1,0 +1,19 @@
+:root {
+  --card: #9dbcc8;
+}
+
+.card {
+  width: 360px;
+  height: 225px;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  margin: 12px;
+  background-color: var(--card);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}

@@ -1,0 +1,11 @@
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gifs {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
