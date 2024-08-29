@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from './Card.jsx';
 import gifs from './gifs.js';
 import './styles/App.css';
 
 function App() {
-  function randomPlacement() {
-    const randomNum = Math.floor(Math.random() * 16);
+  const [shuffledGifs, setShuffledGifs] = useState([...gifs]);
+
+  function shuffle() {
+    console.log('shuffling...');
+    setShuffledGifs((gifs) => [...gifs].sort(() => Math.random() - 0.5));
   }
 
   return (
@@ -20,8 +23,8 @@ function App() {
           <div className="high-score">High Score: </div>
         </section>
         <section className="gifs">
-          {gifs.map((gif) => (
-            <Card key={gif.id} src={gif.src} />
+          {shuffledGifs.map((gif) => (
+            <Card key={gif.id} src={gif.src} handleClick={shuffle} />
           ))}
         </section>
       </main>
