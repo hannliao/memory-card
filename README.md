@@ -2,7 +2,7 @@
 
 Play [this](https://hannliao-memory-card.netlify.app/) fun memory game! Keep track of which gifs you've clicked on. Careful: they move on each click!
 
-![Demo screenshot](memory-card/public/assets/memory-card-demo.png)
+![memory card demo screenshot](https://github.com/user-attachments/assets/aaa10427-c75d-4280-896c-a901bcdae629)
 
 ## Features
 
