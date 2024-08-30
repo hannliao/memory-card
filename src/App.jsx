@@ -5,31 +5,87 @@ import './styles/App.css';
 
 function App() {
   const [shuffledGifs, setShuffledGifs] = useState([...gifs]);
+  const [clickedGifs, setClickedGifs] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
-  function shuffle() {
-    console.log('shuffling...');
+  const shuffle = () => {
     setShuffledGifs((gifs) => [...gifs].sort(() => Math.random() - 0.5));
-  }
+  };
+
+  const reset = () => {
+    setCurrentScore(0);
+    setClickedGifs([]);
+    setGameOver(false);
+  };
+
+  const handleGifClick = (gifId) => {
+    const clickedCard = gifs.find((gif) => gif.id === gifId);
+
+    if (clickedGifs.includes(gifId)) {
+      // lost
+      if (currentScore > highScore) {
+        setHighScore(currentScore);
+      }
+      setGameOver(true);
+    } else {
+      setClickedGifs((gifs) => [...clickedGifs, gifId]);
+      setCurrentScore(currentScore + 1);
+      shuffle();
+    }
+  };
+
+  useEffect(() => {
+    if (currentScore === gifs.length) {
+      // won
+      setHighScore(currentScore);
+      setGameOver(true);
+    }
+    return () => {
+      setGameOver(false);
+    };
+  }, [currentScore]);
 
   return (
-    <>
+    <div className="body">
       <header>
-        <h1>Memory Card Game</h1>
-        <p>Click on every card. Don't click on the same card twice!</p>
+        <div className="title">
+          <h1>Memory Card Game</h1>
+          <p>Click on every card. Don't click on the same card twice!</p>
+        </div>
+        <div className="scoreboard">
+          <div className="high-score">High Score: {highScore}</div>
+          <div className="score">{currentScore}</div>
+        </div>
       </header>
       <main>
-        <section className="scoreboard">
-          <div className="score">Score: </div>
-          <div className="high-score">High Score: </div>
-        </section>
-        <section className="gifs">
+        <section
+          className="gifs"
+          style={{ display: gameOver ? 'none' : 'flex' }}
+        >
           {shuffledGifs.map((gif) => (
-            <Card key={gif.id} src={gif.src} handleClick={shuffle} />
+            <Card
+              key={gif.id}
+              src={gif.src}
+              handleClick={() => handleGifClick(gif.id)}
+            />
           ))}
+        </section>
+        <section
+          className="game-over"
+          style={{ display: gameOver ? 'flex' : 'none' }}
+        >
+          <div className="result">
+            {currentScore === gifs.length ? 'You win!' : 'You lose!'}
+          </div>
+          <button className="play-again" onClick={reset}>
+            Play Again
+          </button>
         </section>
       </main>
       <footer>&copy; 2024 Hannah Liao. All rights reserved.</footer>
-    </>
+    </div>
   );
 }
 

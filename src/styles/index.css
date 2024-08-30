@@ -1,5 +1,5 @@
 :root {
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: 400;
   --border: #5d8696;
   --button: #afc4cc;
@@ -17,24 +17,9 @@ body {
   background-color: #d1dde2;
 }
 
-header,
-footer {
-  color: black;
-  display: grid;
-  justify-items: center;
-  width: 100%;
-  padding: 30px;
-}
-
 button {
-  min-width: 380px;
   border-radius: 8px;
-  border: 2px solid transparent;
-  padding: 0.6em 1.2em;
-  margin: 10px 0;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  border: 3px solid transparent;
   background-color: var(--button);
   cursor: pointer;
   transition: border-color 0.25s;
@@ -42,7 +27,6 @@ button {
 button:hover {
   border-color: var(--border);
 }
-
-input:focus {
-  outline-color: var(--border);
+button:active {
+  background-color: var(--border);
 }

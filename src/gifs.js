@@ -32,10 +32,6 @@ const gifs = [
     src: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGkwbXd6Z3RhdzZ6NTAwbjA2ejJ0NWRsMTF6bHhiYms3ZTJ5dWoxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nyRYg8RXdnaso/giphy.gif',
   },
   {
-    id: 'hugging',
-    src: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExazh4YjcyMXkxeWloZmw1eHdrbXo3cWlkeXg0d203cjJkMnRzNHp1NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ck27cNlAHxveU/giphy.gif',
-  },
-  {
     id: 'flowers',
     src: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2dzaDI2enYzYzRqY2F5dm8zMmc2ZDF5eDlwYjZyNjFtdGZ6ejRuMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/smkHMM0SR2eCk/giphy.gif',
   },
@@ -62,6 +58,10 @@ const gifs = [
   {
     id: 'bike',
     src: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjRodHFjZXo3aHNueWM5cnNxbzg2YTVicHlvNzZvYndlZXk1enpyMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Jisl24Dwj8pNe/giphy.gif',
+  },
+  {
+    id: 'lei',
+    src: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWE5eGkzd21kOXN4Z29oenhoaHIxbm80NHRmcjBhNXFkMTRlMmJmMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KgPIFJWlIoNQ7V9XuO/giphy.gif',
   },
 ];
 
