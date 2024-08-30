@@ -1,8 +1,19 @@
-# React + Vite
+# memory-card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Play [this](https://hannliao-memory-card.netlify.app/) fun memory game! Keep track of which gifs you've clicked on. Careful: they move on each click!
 
-Currently, two official plugins are available:
+![Demo screenshot](memory-card/public/assets/memory-card-demo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Difficulty levels:
+  - Easy (8 gifs)
+  - Medium (12 gifs)
+  - Hard (16 gifs)
+
+## Credits
+
+- Gifs from [Giphy](https://giphy.com/)
+
+This project was completed as an assignment from The Odin Project.  
+Date completed: 08/30/24
