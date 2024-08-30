@@ -10,7 +10,6 @@
 
 header,
 footer {
-  color: black;
   display: flex;
   justify-content: center;
   margin: 30px 100px;
@@ -33,13 +32,30 @@ main {
   height: 100%;
 }
 
+.levels button {
+  padding: 10px 25px;
+  margin: 10px;
+  color: var(--dark-text);
+  border: 3px solid var(--dark-text);
+  border-radius: 25px;
+  box-shadow: 1px 2px 2px var(--dark-text);
+}
+.levels button:hover {
+  border: 3px solid white;
+}
+.levels .depressed {
+  border: 3px solid white;
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .scoreboard {
   padding-top: 8px;
   text-align: right;
+  color: var(--dark-text);
 }
 
 .score {
-  color: var(--dark-text);
   font-size: 3em;
   font-weight: 800;
   line-height: 1;
@@ -69,6 +85,5 @@ main {
 
 .play-again {
   padding: 20px;
-  font-size: 1.1em;
-  font-weight: 500;
+  border-radius: 40px;
 }

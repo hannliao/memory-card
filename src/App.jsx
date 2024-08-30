@@ -18,11 +18,10 @@ function App() {
     setCurrentScore(0);
     setClickedGifs([]);
     setGameOver(false);
+    shuffle();
   };
 
   const handleGifClick = (gifId) => {
-    const clickedCard = gifs.find((gif) => gif.id === gifId);
-
     if (clickedGifs.includes(gifId)) {
       // lost
       if (currentScore > highScore) {
@@ -36,8 +35,23 @@ function App() {
     }
   };
 
+  const handleLevelChange = (level) => {
+    switch (level) {
+      case 'easy':
+        setShuffledGifs(gifs.slice(0, 8));
+        break;
+      case 'medium':
+        setShuffledGifs(gifs.slice(0, 12));
+        break;
+      default:
+        setShuffledGifs([...gifs]);
+    }
+    reset();
+    setHighScore(0);
+  };
+
   useEffect(() => {
-    if (currentScore === gifs.length) {
+    if (currentScore === shuffledGifs.length) {
       // won
       setHighScore(currentScore);
       setGameOver(true);
@@ -53,6 +67,26 @@ function App() {
         <div className="title">
           <h1>Memory Card Game</h1>
           <p>Click on every card. Don't click on the same card twice!</p>
+        </div>
+        <div className="levels">
+          <button
+            className={shuffledGifs.length === 8 && 'depressed'}
+            onClick={() => handleLevelChange('easy')}
+          >
+            Easy
+          </button>
+          <button
+            className={shuffledGifs.length === 12 && 'depressed'}
+            onClick={() => handleLevelChange('medium')}
+          >
+            Medium
+          </button>
+          <button
+            className={shuffledGifs.length === gifs.length && 'depressed'}
+            onClick={() => handleLevelChange('hard')}
+          >
+            Hard
+          </button>
         </div>
         <div className="scoreboard">
           <div className="high-score">High Score: {highScore}</div>
@@ -77,7 +111,7 @@ function App() {
           style={{ display: gameOver ? 'flex' : 'none' }}
         >
           <div className="result">
-            {currentScore === gifs.length ? 'You win!' : 'You lose!'}
+            {currentScore === shuffledGifs.length ? 'You win!' : 'You lose!'}
           </div>
           <button className="play-again" onClick={reset}>
             Play Again

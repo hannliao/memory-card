@@ -11,6 +11,9 @@
   margin: 12px;
   background-color: var(--card);
 }
+.card:active {
+  background-color: var(--border);
+}
 
 img {
   width: 100%;
