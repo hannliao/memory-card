@@ -118,7 +118,11 @@ function App() {
           </button>
         </section>
       </main>
-      <footer>&copy; 2024 Hannah Liao. All rights reserved.</footer>
+      <footer>
+        &copy; 2024&ensp;
+        <a href="https://github.com/hannliao/memory-card">Hannah Liao</a>. All
+        rights reserved.
+      </footer>
     </div>
   );
 }
