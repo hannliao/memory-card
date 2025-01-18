@@ -1,14 +1,21 @@
 import { useState, useEffect } from 'react';
-import Card from './Card.jsx';
-import gifs from './gifs.js';
+import Card from './Card';
+import gifs from './gifs';
 import './styles/App.css';
 
-function App() {
-  const [shuffledGifs, setShuffledGifs] = useState([...gifs]);
-  const [clickedGifs, setClickedGifs] = useState([]);
-  const [currentScore, setCurrentScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+type Gif = {
+  id: string;
+  src: string;
+};
+
+type Level = 'easy' | 'medium' | 'hard';
+
+const App = () => {
+  const [shuffledGifs, setShuffledGifs] = useState<Gif[]>([...gifs]);
+  const [clickedGifs, setClickedGifs] = useState<string[]>([]);
+  const [currentScore, setCurrentScore] = useState<number>(0);
+  const [highScore, setHighScore] = useState<number>(0);
+  const [gameOver, setGameOver] = useState<boolean>(false);
 
   const shuffle = () => {
     setShuffledGifs((gifs) => [...gifs].sort(() => Math.random() - 0.5));
@@ -21,7 +28,7 @@ function App() {
     shuffle();
   };
 
-  const handleGifClick = (gifId) => {
+  const handleGifClick = (gifId: string) => {
     if (clickedGifs.includes(gifId)) {
       // lost
       if (currentScore > highScore) {
@@ -35,7 +42,7 @@ function App() {
     }
   };
 
-  const handleLevelChange = (level) => {
+  const handleLevelChange = (level: Level) => {
     switch (level) {
       case 'easy':
         setShuffledGifs(gifs.slice(0, 8));
@@ -70,19 +77,19 @@ function App() {
         </div>
         <div className="levels">
           <button
-            className={shuffledGifs.length === 8 && 'depressed'}
+            className={`${shuffledGifs.length === 8 ? 'depressed' : ''}`}
             onClick={() => handleLevelChange('easy')}
           >
             Easy
           </button>
           <button
-            className={shuffledGifs.length === 12 && 'depressed'}
+            className={`${shuffledGifs.length === 12 ? 'depressed' : ''}`}
             onClick={() => handleLevelChange('medium')}
           >
             Medium
           </button>
           <button
-            className={shuffledGifs.length === gifs.length && 'depressed'}
+            className={`${shuffledGifs.length === gifs.length ? 'depressed' : ''}`}
             onClick={() => handleLevelChange('hard')}
           >
             Hard

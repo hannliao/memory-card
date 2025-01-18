@@ -1,4 +1,9 @@
-const gifs = [
+interface Gif {
+  id: string;
+  src: string;
+}
+
+const gifs: Gif[] = [
   {
     id: 'elvis',
     src: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGUwZWVlbXNiMXNzcDg0Y2h1ZDA0ZW9hNWR5ZjcwNXNoY29yN290OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KiZ6kV683kPaU/giphy.gif',
