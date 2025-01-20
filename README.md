@@ -13,7 +13,8 @@ Play [this](https://hannliao-memory-card.netlify.app/) fun memory game! Keep tra
 
 ## Built with
 
-- [TypeScript](https://www.typescriptlang.org/)
+- React + Vite
+- TypeScript
 - JavaScript
 - HTML
 - CSS
